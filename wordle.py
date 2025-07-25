@@ -23,20 +23,18 @@ def get_feedback(answer, user_guess):
 	while i < len(user_guess):
 		char = user_guess[i]
 		if answer[i] == char:
-			feedback.append("O ")
+			feedback.append("O")
 		elif answer.find(char) != -1 :
-			feedback.append("? ")
+			feedback.append("?")
 		else:
-			feedback.append("X ")
+			feedback.append("X")
 		i += 1
-	return ("".join(feedback))[:9]
+	return " ".join(feedback)
 
 
 print_info()
 words = get_words()
 answer = random.choice(words)
-
-print(answer)
 
 attempt = 1
 while attempt <= 6:
@@ -49,7 +47,7 @@ while attempt <= 6:
 		continue
 	else:
 		print(f"単語： {user_guess.upper()}")
-		feedback = get_feedback(answer, user_guess)
+		feedback = get_feedback(answer, user_guess.lower())
 		print(f"\t{feedback}\n")
 		if feedback == "O O O O O":
 			print(f"おめでとうございます！ {attempt}回で単語'{answer.upper()}'を見つけました！")
