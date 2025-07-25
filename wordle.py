@@ -18,7 +18,18 @@ def get_words(filename="words.txt"):
 	return words
 
 def get_feedback(answer, user_guess):
-	return ("XXXXX")
+	feedback = []
+	i = 0
+	while i < len(user_guess):
+		char = user_guess[i]
+		if answer[i] == char:
+			feedback.append("O")
+		elif answer.find(char) != -1 :
+			feedback.append("?")
+		else:
+			feedback.append("X")
+		i += 1
+	return (str(feedback))
 
 
 print_info()
