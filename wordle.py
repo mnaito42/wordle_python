@@ -23,13 +23,13 @@ def get_feedback(answer, user_guess):
 	while i < len(user_guess):
 		char = user_guess[i]
 		if answer[i] == char:
-			feedback.append("O")
+			feedback.append("O ")
 		elif answer.find(char) != -1 :
-			feedback.append("?")
+			feedback.append("? ")
 		else:
-			feedback.append("X")
+			feedback.append("X ")
 		i += 1
-	return (str(feedback))
+	return ("".join(feedback))[:9]
 
 
 print_info()
